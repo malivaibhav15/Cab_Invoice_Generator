@@ -1,10 +1,10 @@
 package com.BridgeLabzs;
 
-public class MultipleRIdes {
+public class MultipleRides {
     public double kiloMeters;
     public int time;
 
-    public MultipleRIdes(double kiloMeters, int time) {
+    public MultipleRides(double kiloMeters, int time) {
         this.kiloMeters = kiloMeters;
         this.time = time;
     }
