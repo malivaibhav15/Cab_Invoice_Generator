@@ -1,4 +1,5 @@
-import com.BridgeLabzs.MultipleRIdes;
+import com.BridgeLabzs.FareSummery;
+import com.BridgeLabzs.MultipleRides;
 import com.BridgeLabzs.TotalBillGenerator;
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,9 +26,19 @@ public class TestCaseForTotalBill {
 
     @Test
     public void givenMultipleRides_WhenProper_ShouldReturnAggrigate() {
-        MultipleRIdes[] multipleRIdes = {new MultipleRIdes(10, 15),
-                new MultipleRIdes(0.2, 2)};
-        double totalFare = totalBillGenerator.calculateFare(multipleRIdes);
+        MultipleRides[] multipleRides = {new MultipleRides(10, 15),
+                new MultipleRides(0.2, 2)};
+        double totalFare = totalBillGenerator.calculateFare(multipleRides);
         Assert.assertEquals(120, totalFare, 0.0);
+    }
+
+    @Test
+    public void givenMultipleRides_GenerateTotalFare_ShouldReturnInvoiceSummery()
+    {
+        MultipleRides[] multipleRides = {new MultipleRides(10,15),
+                                         new MultipleRides(0.2,2) };
+        FareSummery fareSummery = totalBillGenerator.getFareSummery(multipleRides);
+        FareSummery expectedSummery = new FareSummery(2,120);
+        Assert.assertEquals(expectedSummery,fareSummery);
     }
 }
