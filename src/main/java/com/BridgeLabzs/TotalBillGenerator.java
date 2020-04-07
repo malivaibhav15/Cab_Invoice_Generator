@@ -12,7 +12,13 @@ public class TotalBillGenerator {
             return MINIMUM_FARE;
         else
             return totalFare;
+    }
 
-
+    public double calculateFare(MultipleRIdes[] multipleRIdes) {
+        double totalFare = 0;
+        for (MultipleRIdes multipleRIdes1 : multipleRIdes) {
+            totalFare = totalFare + this.calculateFare(multipleRIdes1.kiloMeters, multipleRIdes1.time);
+        }
+        return totalFare;
     }
 }
