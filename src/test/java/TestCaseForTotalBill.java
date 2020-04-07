@@ -27,18 +27,22 @@ public class TestCaseForTotalBill {
     @Test
     public void givenMultipleRides_WhenProper_ShouldReturnAggrigate() {
         MultipleRides[] multipleRides = {new MultipleRides(10, 15),
-                new MultipleRides(0.2, 2)};
-        double totalFare = totalBillGenerator.calculateFare(multipleRides);
-        Assert.assertEquals(120, totalFare, 0.0);
+                                         new MultipleRides(0.2, 2)};
+        FareSummery fareSummery = totalBillGenerator.calculateFare(multipleRides);
+        FareSummery expectedResult = new FareSummery(2,120);
+        Assert.assertEquals(fareSummery,expectedResult);
     }
 
+
     @Test
-    public void givenMultipleRides_GenerateTotalFare_ShouldReturnInvoiceSummery()
+    public void givenUserName_WhenProper_ShouldReturnInvoiceSummery()
     {
-        MultipleRides[] multipleRides = {new MultipleRides(10,15),
-                                         new MultipleRides(0.2,2) };
-        FareSummery fareSummery = totalBillGenerator.getFareSummery(multipleRides);
-        FareSummery expectedSummery = new FareSummery(2,120);
-        Assert.assertEquals(expectedSummery,fareSummery);
+        String userName = "abc@123";
+        MultipleRides[] multipleRides = { new MultipleRides(10,15),
+                                          new MultipleRides(0.2,2) };
+        totalBillGenerator.calculateFare(userName,multipleRides);
+        FareSummery fareSummery = totalBillGenerator.getFareSummery(userName);
+        FareSummery expectedFareSummery = new FareSummery(2,120);
+        Assert.assertEquals(expectedFareSummery,fareSummery);
     }
 }
