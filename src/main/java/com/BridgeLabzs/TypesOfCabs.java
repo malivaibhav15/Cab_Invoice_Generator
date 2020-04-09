@@ -1,4 +1,7 @@
 package com.BridgeLabzs;
 
-public enum TypesOfCabs {
+public enum TypesOfCabs
+{
+    NORMAL_RIDES,
+    PREMIUM_RIDES
 }
