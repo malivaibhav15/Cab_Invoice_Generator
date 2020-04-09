@@ -1,22 +1,21 @@
 package com.BridgeLabzs;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-public class RideRepository
-{
+public class RideRepository {
     Map<String, ArrayList<MultipleRides>> userRides = null;
 
-    public RideRepository()
-    {
+    public RideRepository() {
         this.userRides = new HashMap<>();
     }
-    public void addRides(String userName , MultipleRides[] multipleRides)
-    {
+
+    public void calculateFare(String userName, MultipleRides[] multipleRides) {
         ArrayList<MultipleRides> rideList = this.userRides.get(userName);
-        if (rideList == null)
-        {
-           this.userRides.put(userName, new ArrayList<>(Arrays.asList(multipleRides)));
+        if (rideList == null) {
+            this.userRides.put(userName, new ArrayList<>(Arrays.asList(multipleRides)));
         }
 
     }
